@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pie Charts</title>
+<style>
+    section{
+        width: 700px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .pie {
+        display: inline-block;
+        position: relative;
+        width: 200px;
+        line-height: 200px;
+        border-radius: 50%;
+        background: yellowgreen;
+        background-image: linear-gradient(to right, transparent 50%, #655 0);
+        color: transparent;
+        text-align: center;
+       
+    }
+
+    @keyframes spin{
+        to {
+            transform: rotate(.5turn);
+        }
+    }
+
+    @keyframes bg{
+        50% {
+            background: #655;
+        }
+    }
+    
+    .pie::before{
+        content: "";
+        position: absolute;
+        top: 0; left: 50%;
+        width: 50%; height: 100%;
+        background-color: inherit;
+        border-radius: 0 100% 100% 0 / 50%; 
+        transform-origin: 0 50%;
+        animation: spin 50s linear infinite, 
+            bg 100s step-end infinite;
+        animation-play-state: paused;
+        animation-delay: inherit;
+    }    
+    
+    .pie.animated::before{
+        animation-play-state: running;
+        /* just want it faster...*/
+        animation: spin 3s linear infinite, 
+            bg 6s step-end infinite;
+    }
+    
+</style>
+
+
+<script>
+//    i cannnot make the script work :(
+    function $$(selector, context) {
+        context = context || document;
+        var elements = context.querySelectorAll(selector);
+        return Array.prototype.slice.call(elements);
+    }
+
+    $$('.pie').forEach(function(pie) {
+        var p = pie.textContent;
+        pie.style.animationDelay = '-' + parseFloat(p) + 's';
+    });    
+</script>
+</head>
+
+<body>
+    
+
+<section>
+    <h3>transform-based solution</h3>
+    <div class="pie animated">&nbsp;</div>
+    <div class="pie" style="animation-delay: -20s">20%</div>
+    <div class="pie" style="animation-delay: -65s">65%</div>
+</section>
+
+</body>
+</html>
+
