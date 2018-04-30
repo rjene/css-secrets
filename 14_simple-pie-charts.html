@@ -1,82 +1,102 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Pie Charts</title>
-<style>
-    section{
-        width: 700px;
-        margin: 0 auto;
-        text-align: center;
-    }
+    <title>CSS Secrets - Pie Charts</title>
     
-    .pie {
-        display: inline-block;
-        position: relative;
-        width: 200px;
-        line-height: 200px;
-        border-radius: 50%;
-        background: yellowgreen;
-        background-image: linear-gradient(to right, transparent 50%, #655 0);
-        color: transparent;
-        text-align: center;
-       
-    }
-
-    @keyframes spin{
-        to {
-            transform: rotate(.5turn);
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    
+    <style>
+        body{
+            font-family: "Roboto", sans-serif;   
+            color: #333;
         }
-    }
-
-    @keyframes bg{
-        50% {
-            background: #655;
+        section{
+            width: 700px;
+            margin: 0 auto;
+            padding-bottom: 30px;
         }
-    }
-    
-    .pie::before{
-        content: "";
-        position: absolute;
-        top: 0; left: 50%;
-        width: 50%; height: 100%;
-        background-color: inherit;
-        border-radius: 0 100% 100% 0 / 50%; 
-        transform-origin: 0 50%;
-        animation: spin 50s linear infinite, 
-            bg 100s step-end infinite;
-        animation-play-state: paused;
-        animation-delay: inherit;
-    }    
-    
-    .pie.animated::before{
-        animation-play-state: running;
-        /* just want it faster...*/
-        animation: spin 3s linear infinite, 
-            bg 6s step-end infinite;
-    }
-    
-</style>
+        
+        h3{
+            color: cornflowerblue;
+        }
+
+        .pie{
+            display: inline-block;
+            position: relative;
+            width: 200px;
+            line-height: 200px;
+            border-radius: 50%;
+            background: yellowgreen;
+            background-image: linear-gradient(to right, transparent 50%, #655 0);
+            color: transparent;
+            text-align: center;
+
+        }
+
+        @keyframes spin{
+            to {
+                transform: rotate(.5turn);
+            }
+        }
+
+        @keyframes bg{
+            50% {
+                background: #655;
+            }
+        }
+
+        .pie::before{
+            content: "";
+            position: absolute;
+            top: 0; left: 50%;
+            width: 50%; height: 100%;
+            background-color: inherit;
+            border-radius: 0 100% 100% 0 / 50%; 
+            transform-origin: 0 50%;
+            animation: spin 50s linear infinite, 
+                bg 100s step-end infinite;
+            animation-play-state: paused;
+            animation-delay: inherit;
+        }    
+
+        .pie.animated::before{
+            animation-play-state: running;
+            /* just want it faster...*/
+            animation: spin 3s linear infinite, 
+                bg 6s step-end infinite;
+        }
 
 
-<script>
-//    i cannnot make the script work :(
-    function $$(selector, context) {
-        context = context || document;
-        var elements = context.querySelectorAll(selector);
-        return Array.prototype.slice.call(elements);
-    }
+        .pie-conic{
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(gold 25%, yellowgreen 0 55%, rebeccapurple 0 85%, cornflowerblue 0 95%, orange 0);
+        }
+    </style>
 
-    $$('.pie').forEach(function(pie) {
-        var p = pie.textContent;
-        pie.style.animationDelay = '-' + parseFloat(p) + 's';
-    });    
-</script>
+
+    <script>
+    //    i cannot make the script work :(
+        function $$(selector, context) {
+            context = context || document;
+            var elements = context.querySelectorAll(selector);
+            return Array.prototype.slice.call(elements);
+        }
+
+        $$('.pie').forEach(function(pie) {
+            var p = pie.textContent;
+            pie.style.animationDelay = '-' + parseFloat(p) + 's';
+        });    
+    </script>
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="js/conic-gradient.js"></script>
 </head>
 
 <body>
-    
 
 <section>
     <h3>transform-based solution</h3>
@@ -84,7 +104,12 @@
     <div class="pie" style="animation-delay: -20s">20%</div>
     <div class="pie" style="animation-delay: -65s">65%</div>
 </section>
+    
+
+<section>
+    <h3>conic-gradient solution - allows multiple slices</h3>
+    <div class="pie-conic">&nbsp;</div>
+</section>
 
 </body>
 </html>
-
