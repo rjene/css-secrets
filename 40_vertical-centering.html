@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting"><!--disable auto-scale in iOS-->
+    <title></title><!--noted to show up in Android -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+        }
+
+        section{
+            background: silver;
+            height: 400px;
+            position: relative;
+        }
+        section.alt{
+            background: initial;
+        }
+
+        p{
+            margin: 0;
+        }
+
+        a{
+          color: bisque;
+        }
+
+        .box {
+            padding: 1em;
+            box-sizing: border-box;
+            background: salmon;
+            color: white;
+            text-align: center;
+        }
+
+        .box1{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            margin-top: -50px; /* 100/2 */
+            margin-left: -125px; /* 250/2 */
+
+            height: 100px;
+            width: 250px;
+        }
+
+        .box2{
+            position: absolute;
+            top: calc(50% - 50px);
+            left: calc(50% - 125px);
+
+            height: 100px;
+            width: 250px;
+        }
+
+        .box3{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+   <section>
+        <div class="box box1">
+            <p>Vertical centering using position absolute and negative margins. Element width and height is set.</p>
+        </div>
+    </section>
+   <section class="alt">
+        <div class="box box2">
+            <p>Vertical centering using position absolute and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc" title="about calc()">calc()</a> to set position. Element width and height is set.</p>
+        </div>
+    </section>
+   <section>
+        <div class="box box3">
+            <p>Vertical centering using position absolute and transform</p>
+            <p>no width nor height set on element</p>
+        </div>
+    </section>
+</body>
+</html>
