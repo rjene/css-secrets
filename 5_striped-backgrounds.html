@@ -38,7 +38,21 @@
             background: linear-gradient(to right, slategray 50%, aliceblue 0);
             background-size: 50px 100%;
         }
-    </style>s
+        
+        .vertical-multi{
+            background: linear-gradient(to right, white 25%, cornflowerblue 0, cornflowerblue 50%, aliceblue 0, aliceblue 75%, gold 0);
+            background-size: 100px 100%;
+        }
+        
+        .jagged-horizontal{
+            background: linear-gradient(45deg, slategray 50%, aliceblue 0);
+            background-size: 50px 100%;
+        }        
+        .jagged-vertical{
+            background: linear-gradient(45deg, slategray 50%, aliceblue 0);
+            background-size: 100% 50px;
+        }
+    </style>
 </head>
 
 <body>
@@ -54,9 +68,14 @@
     </section>
     <section>
         <h3>vertical stripes</h3>
-        <div class="vertical notepad">
-        </div>      
-
+        <div class="vertical notepad"></div>   
+        <div class="vertical-multi notepad"></div>      
+    </section>
+    
+    <section>
+        <h3>jagged via diagonal stripes</h3>
+        <div class="jagged-horizontal notepad"></div>
+        <div class="jagged-vertical notepad"></div>
     </section>
 </body>
 </html>
