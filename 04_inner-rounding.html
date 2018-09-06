@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="x-apple-disable-message-reformatting"><!--disable auto-scale in iOS-->
+        <title></title><!--noted to show up in Android -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+
+        <style>
+            body {
+                font-family: "Roboto", sans-serif;
+                background: #333;
+            }
+            section{
+                position: relative;
+                height: 400px;
+            }
+            .box{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 50%;
+
+                text-align: center;
+                padding: 30px;
+                margin: 0;
+                font-style: italic;
+                font-size: 2em;
+            }
+            .box1{
+                background: tan;
+                border-radius: .8em;
+                padding: 1em;
+                box-shadow: 0 0 0 .5em #655;
+                outline: .5em solid #655;
+            }
+
+        </style>
+    </head>
+    <body>
+        <section>
+            <div class="box box1">
+                <p>Inner round corners with just one element!</p>
+            </div>
+        </section>
+    </body>
+</html>
