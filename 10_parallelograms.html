@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    
+    <style>
+        body{
+            background: #fff;
+            font: 24px "Roboto", Arial, sans-serif;
+        }
+        section{
+            margin: 0 auto;
+            padding: 100px 0 0;
+        }
+        button{
+            position: relative;
+            
+            background: none;
+            border: 0;
+            color: aliceblue;
+            padding: 10px 20px;
+            text-transform: uppercase;
+        }
+        button::before{
+            content: ''; /*to generate the box*/
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left:0;
+            z-index: -1; /*so it doesnt cover the text*/
+            background: lightskyblue;
+            transform: skew(-45deg); /*parallelogram*/
+        }
+        
+        ul{
+            list-style: none;
+            text-align: left;
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            display: inline-block;          
+        }
+        
+        .sq button{
+            color: darkgray;
+        }
+
+        .sq button::before{
+            background: slategray;
+            transform: skew(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+       <ul>
+           <li><button>Home</button></li>
+           <li><button>About Us</button></li>
+           <li><button>Services</button></li>
+           <li><button>Contact Us</button></li>
+       </ul> 
+       <ul class="sq">
+           <li><button>Home</button></li>
+           <li><button>About Us</button></li>
+           <li><button>Services</button></li>
+           <li><button>Contact Us</button></li>
+       </ul>       
+    </section>
+</body>
+</html>
