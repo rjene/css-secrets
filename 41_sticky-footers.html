@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body{
+            background: ghostwhite;
+            margin: 0; padding: 0;
+            font: 16px "Roboto", Arial, sans-serif;
+            color: #04540C;
+            
+            display: flex;
+            flex-flow: column nowrap;
+            height: 100vh;
+        }
+      
+        header{
+            background: #83C4A4;
+        }
+        
+        section{
+            flex: 1;
+            position: relative;
+        }
+        
+/*see vertical centering solution*/
+        .content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);   
+            
+            background: slategray;
+            color: aliceblue;
+            border-radius: 8px;
+            border: 10px dashed ghostwhite;
+        }
+        
+        footer{
+            background: #83C4A4;
+            height: auto;
+            line-height: 80px;   
+            margin-bottom: 0;
+        }
+        
+        p{
+            padding: 20px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+
+<body>
+<!--
+<header>
+    <p>This is an ordinary everyday header</p>
+</header>
+-->
+<section>
+    <div class="content">
+        <p>This is your usual message that is vertically centered for happiness.</p>
+    </div>
+</section>
+<footer>
+    <p>This is no ordinary footer that sticks to the bottom... forever. (Even in IE)</p>
+</footer>
+</body>
+</html>
